@@ -5,14 +5,14 @@ using UnityEngine;
 
 
 
-public abstract class GenericObjectPool<T> : MonoBehaviour/*Singleton<GenericObjectPool<T>>*/ where T : Component
+public abstract class GenericObjectPool<T> : MonoBehaviour where T : Component
 {
 
     public static GenericObjectPool<T> Instance { get; private set; }
     
 
     [SerializeField]
-    protected int MaxNumberOfEntitiesInstantiate = 100;
+    protected int _MaxNumberOfEntitiesInstantiate = 100;
     [Space(5)]
 
     [SerializeField]
@@ -22,7 +22,7 @@ public abstract class GenericObjectPool<T> : MonoBehaviour/*Singleton<GenericObj
     public void Awake()
     {
         Instance = this;
-        AddObject(MaxNumberOfEntitiesInstantiate);
+        AddObject(_MaxNumberOfEntitiesInstantiate);
     }
 
     public T Get()
@@ -43,6 +43,8 @@ public abstract class GenericObjectPool<T> : MonoBehaviour/*Singleton<GenericObj
         for(int i = 0; i < amount; ++i)
         {
             var newObject = GameObject.Instantiate(_object);
+            //To keep them contained in their parent container, the pool in this case.
+            newObject.transform.parent = this.gameObject.transform;
             newObject.gameObject.SetActive(false);
             _poolObjects.Enqueue(newObject);
         }

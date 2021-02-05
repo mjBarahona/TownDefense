@@ -447,6 +447,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyTest
       objectReference: {fileID: 0}
+    - target: {fileID: 879764822081624222, guid: f97343383ad3d7e48bb85756e7d92174, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4312722448707149232, guid: f97343383ad3d7e48bb85756e7d92174, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -575,7 +579,7 @@ GameObject:
   - component: {fileID: 1498127347}
   - component: {fileID: 1498127346}
   - component: {fileID: 1498127345}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -702,7 +706,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a6c0cb3852734a4ca11ca9ea696c349, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxNumberOfEntitiesInstantiate: 100
+  MaxNumberOfEntitiesInstantiate: 50
   _object: {fileID: -5307516799657282806, guid: 03a1dc03fe669b244900a306ffcb2743, type: 3}
 --- !u!4 &1735016326 stripped
 Transform:

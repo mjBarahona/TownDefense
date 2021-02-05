@@ -6,24 +6,24 @@ using UnityEngine;
 public class EnemiesHordeInfo
 {
     [SerializeField]
-    private string Name;
+    private string _Name;
     [SerializeField]
-    private int Id;
+    private int _Id;
     [SerializeField]
-    private int InitialAmountToSpawn = 20;
+    private int _InitialAmountToSpawn = 20;
     [SerializeField]
-    private int RisePerHorde = 10;
+    private int _RisePerHorde = 10;
     [SerializeField]
-    private GameObject EnemyPrefab;
+    private GameObject _EnemyPrefab;
 
 
     public int GetCurrentHordeAmount(int horde)
     {
-        return horde * RisePerHorde + InitialAmountToSpawn;
+        return horde * _RisePerHorde + _InitialAmountToSpawn;
     }
-    public void SetId(int id) { Id = id; }
-    public int GetId() { return Id; }
-    public GameObject GetEnemyPrefab() { return EnemyPrefab; }
+    public void SetId(int id) { _Id = id; }
+    public int GetId() { return _Id; }
+    public GameObject GetEnemyPrefab() { return _EnemyPrefab; }
 
 }
 

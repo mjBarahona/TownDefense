@@ -6,7 +6,9 @@ public class RangeAttack : MonoBehaviour
 {
     private void Start()
     {
-        InputManager.OnClick += Fire;
+        //It should be a event in the main character, and Fire should be called
+        //when the animation of attack is finished with another event
+        InputManager.OnClick += Fire;   
     }
  
     public void Fire(Vector3 target)
