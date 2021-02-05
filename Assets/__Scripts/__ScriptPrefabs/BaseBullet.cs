@@ -2,12 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BaseBullet : MonoBehaviour
+public class BaseBullet : MonoBehaviour, IAttack<int>
 {
 
     [SerializeField] private float _Speed;
     [SerializeField] private float _MaxLifeTime = 5f;
+    public int Damage { get; set; }
+    
+
     private Vector3 _Orientation;
+
+
 
     public void OnEnable()
     {
@@ -16,8 +21,10 @@ public class BaseBullet : MonoBehaviour
         Invoke("ReturnToPool", _MaxLifeTime);   
     }
 
+   
     private void OnDisable()
     {
+        //To avoid call after re-active the gameobject
         CancelInvoke("ReturnToPool");
     }
 

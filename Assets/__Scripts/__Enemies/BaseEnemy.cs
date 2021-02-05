@@ -14,9 +14,11 @@ public class BaseEnemy : MonoBehaviour, IDamagable<int>
     [SerializeField]
     private int _exp = 1;
 
-    public int Health { get; set; }
+    [SerializeField]
+    private int _Health;
+    public int Health { get { return (_Health); } set { _Health = value; } }
 
-    public void Damage(int damageAmount)
+    public void TakeDamage(int damageAmount)
     {
         Health -= damageAmount;
         if(Health <= 0)
@@ -32,5 +34,13 @@ public class BaseEnemy : MonoBehaviour, IDamagable<int>
         if (OnEarnExp != null)      OnEarnExp(_exp);
     }
 
-    
+    private void OnTriggerEnter(Collider other)
+    {
+        IAttack<int> attack = other.GetComponent<IAttack<int>>();
+        if (attack != null)
+        {
+            Debug.Log("Hit");
+        }
+    }
+
 }

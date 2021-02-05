@@ -6,5 +6,5 @@ public interface IDamagable<T>
 {
     T Health { get; set; }
 
-    void Damage(T damageAmount);
+    void TakeDamage(T damageAmount);
 }

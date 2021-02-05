@@ -17,7 +17,7 @@ public class InputManager : Singleton<InputManager>
             RaycastHit hit;
             ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             LayerMask mask = LayerMask.GetMask("Floor");
-            if (Physics.Raycast(ray, out hit, Mathf.Infinity, mask) && OnClick != null) OnClick(hit.point);
+            if (Physics.Raycast(ray, out hit, 100f, mask) && OnClick != null) OnClick(hit.point);
         }
     }
 }
