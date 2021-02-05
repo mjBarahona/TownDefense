@@ -1,0 +1,50 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+
+
+public abstract class GenericObjectPool<T> : MonoBehaviour/*Singleton<GenericObjectPool<T>>*/ where T : Component
+{
+
+    public static GenericObjectPool<T> Instance { get; private set; }
+    
+
+    [SerializeField]
+    protected int MaxNumberOfEntitiesInstantiate = 100;
+    [Space(5)]
+
+    [SerializeField]
+    protected T _object;
+    private Queue<T> _poolObjects = new Queue<T>();
+
+    public void Awake()
+    {
+        Instance = this;
+        AddObject(MaxNumberOfEntitiesInstantiate);
+    }
+
+    public T Get()
+    {
+        if (_poolObjects.Count == 0) AddObject(1);
+        return _poolObjects.Dequeue();
+
+    }
+
+    public void ReturnToPool(T objectToReturn)
+    {
+        objectToReturn.gameObject.SetActive(false);
+        _poolObjects.Enqueue(objectToReturn);
+    }
+
+    private void AddObject(int amount)
+    {
+        for(int i = 0; i < amount; ++i)
+        {
+            var newObject = GameObject.Instantiate(_object);
+            newObject.gameObject.SetActive(false);
+            _poolObjects.Enqueue(newObject);
+        }
+    }
+}
