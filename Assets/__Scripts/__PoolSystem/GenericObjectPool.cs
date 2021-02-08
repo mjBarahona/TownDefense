@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-
+//Class Generic to create pools of objects
 public abstract class GenericObjectPool<T> : MonoBehaviour where T : Component
 {
 

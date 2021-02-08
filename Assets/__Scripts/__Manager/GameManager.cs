@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,23 +9,22 @@ public class EnemiesHordeInfo
     [SerializeField]
     private string _Name;
     [SerializeField]
-    private int _Id;
-    [SerializeField]
     private int _InitialAmountToSpawn = 20;
     [SerializeField]
     private int _RisePerHorde = 10;
     [SerializeField]
-    private GameObject _EnemyPrefab;
+    private GenericObjectPool<BaseEnemy> _EnemyRespawns;
 
 
     public int GetCurrentHordeAmount(int horde)
     {
         return horde * _RisePerHorde + _InitialAmountToSpawn;
     }
-    public void SetId(int id) { _Id = id; }
-    public int GetId() { return _Id; }
-    public GameObject GetEnemyPrefab() { return _EnemyPrefab; }
 
+    public GenericObjectPool<BaseEnemy> GetPool()
+    {
+        return _EnemyRespawns;
+    }
 }
 
 public class GameManager : Singleton<GameManager>
@@ -37,6 +37,7 @@ public class GameManager : Singleton<GameManager>
     private int _horde { get; set; }
     private int _coins { get; set; }
 
+    public static Action<int, GenericObjectPool<BaseEnemy>> OnSpawn;
 
     private void OnEnable()
     {
@@ -51,7 +52,6 @@ public class GameManager : Singleton<GameManager>
         // UiManager.Instance.UpdateCoins(_coins);
         for (int i = 0; i < Enemies.Count; ++i)
         {
-            Enemies[i].SetId(i);
             _CurrentTotalEnemies += Enemies[i].GetCurrentHordeAmount(_horde);
             //PoolManager.Instance.SpawnEnemy(Enemies[i].GetId(), Enemies[i].GetCurrentHordeAmount(_horde));  // I have to think a bit more about this
         }
@@ -77,13 +77,22 @@ public class GameManager : Singleton<GameManager>
     public void NextHorde()
     {
         ++_horde;
-        for (int i = 0; i < Enemies.Count; ++i) _CurrentTotalEnemies += Enemies[i].GetCurrentHordeAmount(_horde);
-       
+        CallToRespawnEnemies();
+        
 
         // Update the UI
         // UiManager.Instance.ShowHorde(_horde)
         // 
     }
 
+    public void CallToRespawnEnemies()
+    {
+        for (int i = 0; i < Enemies.Count; ++i)
+        {
+            _CurrentTotalEnemies += Enemies[i].GetCurrentHordeAmount(_horde);
+            if(OnSpawn != null) OnSpawn(Enemies[i].GetCurrentHordeAmount(_horde), Enemies[i].GetPool());
+        }
+            
+    }
 
 }

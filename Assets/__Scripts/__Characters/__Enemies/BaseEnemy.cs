@@ -3,7 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BaseEnemy : MonoBehaviour, IDamagable<int>
+//Probably, this class will become in abstract class
+public class BaseEnemy : BaseCharacter, IDamagable<int>
 {
     public static Action OnDeath;
     public static Action<int> OnEarnCoins;
@@ -15,23 +16,40 @@ public class BaseEnemy : MonoBehaviour, IDamagable<int>
     private int _exp = 1;
 
     [SerializeField]
-    private int _Health;
-    public int Health { get { return (_Health); } set { _Health = value; } }
+    private int _MaxHealth = 100;
+    private int _CurrentHealth;
+    public int Health { get; set; }
 
-    public void TakeDamage(int damageAmount)
+    //Reset values every time the enemy is active
+    private void OnEnable()
+    {
+        Health = _MaxHealth;
+    }
+
+    public override void TakeDamage(int damageAmount)
     {
         Health -= damageAmount;
+        //TODO: Update UI to show the Health Bar
         if(Health <= 0)
         {
             Death();
         }
     }
 
+    public override void Attack()
+    {
+        //TODO: firstly, we have to have something to hit...
+    }
+
     public void Death()
     {
+        //Events to GameManager
         if (OnDeath != null)        OnDeath();
         if (OnEarnCoins != null)    OnEarnCoins(_coins);
         if (OnEarnExp != null)      OnEarnExp(_exp);
+
+        //Death behaviour in the enemy
+        gameObject.SetActive(false);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -39,7 +57,7 @@ public class BaseEnemy : MonoBehaviour, IDamagable<int>
         IAttack<int> attack = other.GetComponent<IAttack<int>>();
         if (attack != null)
         {
-            Debug.Log("Hit");
+            TakeDamage(attack.Damage);
         }
     }
 

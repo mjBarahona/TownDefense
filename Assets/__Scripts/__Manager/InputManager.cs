@@ -19,5 +19,17 @@ public class InputManager : Singleton<InputManager>
             LayerMask mask = LayerMask.GetMask("Floor");
             if (Physics.Raycast(ray, out hit, 100f, mask) && OnClick != null) OnClick(hit.point);
         }
+
+        //Test in scene of pooling enemies // working
+        //if (Input.GetKeyDown(KeyCode.Space))
+        //{
+        //    var enemy = EnemyPool.Instance.Get();
+        //    enemy.transform.position = new Vector3( 0f,0f,0f );
+        //    enemy.gameObject.SetActive(true);
+        //}
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            GameManager.Instance.NextHorde();
+        }
     }
 }

@@ -5,9 +5,10 @@ using UnityEngine;
 public class BaseBullet : MonoBehaviour, IAttack<int>
 {
 
-    [SerializeField] private float _Speed;
+    [SerializeField] private float _Speed = 5f;
     [SerializeField] private float _MaxLifeTime = 5f;
-    public int Damage { get; set; }
+    [SerializeField] private int _Damage = 5;
+    public int Damage { get { return _Damage; } set { _Damage = value; } }
     
 
     private Vector3 _Orientation;
