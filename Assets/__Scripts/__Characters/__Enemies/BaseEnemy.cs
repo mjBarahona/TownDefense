@@ -61,4 +61,12 @@ public class BaseEnemy : BaseCharacter, IDamagable<int>
         }
     }
 
+
+    private void Update()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            
+        }
+    }
 }

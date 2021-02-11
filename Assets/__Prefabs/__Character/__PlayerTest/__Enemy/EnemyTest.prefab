@@ -14,6 +14,8 @@ GameObject:
   - component: {fileID: 1937884955698347967}
   - component: {fileID: 8326351746229366919}
   - component: {fileID: 8326351746229366912}
+  - component: {fileID: 2156567171393771894}
+  - component: {fileID: 5222834502416170060}
   m_Layer: 2
   m_Name: EnemyTest
   m_TagString: Untagged
@@ -132,3 +134,40 @@ MonoBehaviour:
   _coins: 1
   _exp: 1
   _MaxHealth: 100
+--- !u!195 &2156567171393771894
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9203292470095522108}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 1
+  m_BaseOffset: 0.5
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!114 &5222834502416170060
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9203292470095522108}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a65f125f5e403844ac68fa739aad4d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _Agent: {fileID: 2156567171393771894}
+  _PositionTarget: {fileID: 0}
+  _RangeAttack: 2.5
