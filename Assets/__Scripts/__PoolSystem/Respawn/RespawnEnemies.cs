@@ -30,7 +30,7 @@ public class RespawnEnemies : MonoBehaviour
             BaseEnemy enemy = pool.Get();
             int respawn = UnityEngine.Random.Range(0, _PositionsToRespawn.Count);
             enemy.transform.position = _PositionsToRespawn[respawn].position;
-            enemy.gameObject.SetActive(true);   //Reset stats when is activated
+            enemy.gameObject.SetActive(true);   
             yield return new WaitForSeconds(TimeBetweenEachSpawn);
             ++i;
         }

@@ -94,7 +94,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9203292470095522108}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -169,5 +169,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _Agent: {fileID: 2156567171393771894}
-  _PositionTarget: {fileID: 0}
+  _PositionTarget: {x: 0, y: 0, z: 0}
   _RangeAttack: 2.5

@@ -6,7 +6,7 @@ public class BaseBullet : MonoBehaviour, IAttack<int>
 {
 
     [SerializeField] private float _Speed = 5f;
-    [SerializeField] private float _MaxLifeTime = 5f;
+    [SerializeField] private float _MaxLifeTime = 10f;
     [SerializeField] private int _Damage = 5;
     public int Damage { get { return _Damage; } set { _Damage = value; } }
     

@@ -24,6 +24,7 @@ public class BaseEnemy : BaseCharacter, IDamagable<int>
     private void OnEnable()
     {
         Health = _MaxHealth;
+        //TODO: Update UI to show the Health Bar
     }
 
     public override void TakeDamage(int damageAmount)
@@ -58,15 +59,6 @@ public class BaseEnemy : BaseCharacter, IDamagable<int>
         if (attack != null)
         {
             TakeDamage(attack.Damage);
-        }
-    }
-
-
-    private void Update()
-    {
-        if (Input.GetMouseButtonDown(0))
-        {
-            
         }
     }
 }
