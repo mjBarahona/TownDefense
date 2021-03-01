@@ -28,9 +28,9 @@ public class InputManager : Singleton<InputManager>
         //    enemy.gameObject.SetActive(true);
         //}
         //To test in scene the spawn of hordes with different respawns
-        //if (Input.GetKeyDown(KeyCode.Space))
-        //{
-        //    GameManager.Instance.NextHorde();
-        //}
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            GameManager.Instance.NextHorde();
+        }
     }
 }

@@ -412,6 +412,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4492121591207213752, guid: 935460684c14cd64b8c6f63bd0330753, type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
+    - target: {fileID: 4492121591207213752, guid: 935460684c14cd64b8c6f63bd0330753, type: 3}
       propertyPath: m_Name
       value: Respawn3
       objectReference: {fileID: 0}
@@ -644,7 +648,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 705507993}
   m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
-  m_LocalPosition: {x: 0, y: 3, z: 0}
+  m_LocalPosition: {x: 0, y: 300, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1098,7 +1102,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b53fb6ff7cb7b444180308d042737873, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _MaxNumberOfEntitiesInstantiate: 100
   _object: {fileID: 8326351746229366912, guid: a7cd06f92cf858740999d740a07b3e01, type: 3}
 --- !u!1 &1349918558
 GameObject:
@@ -1377,7 +1380,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a6c0cb3852734a4ca11ca9ea696c349, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _MaxNumberOfEntitiesInstantiate: 100
   _object: {fileID: -5307516799657282806, guid: 03a1dc03fe669b244900a306ffcb2743, type: 3}
 --- !u!1001 &1663736779
 PrefabInstance:
@@ -1390,6 +1392,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4492121591207213752, guid: 935460684c14cd64b8c6f63bd0330753, type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
     - target: {fileID: 4492121591207213752, guid: 935460684c14cd64b8c6f63bd0330753, type: 3}
       propertyPath: m_Name
       value: Respawn1
@@ -1738,6 +1744,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4492121591207213752, guid: 935460684c14cd64b8c6f63bd0330753, type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
     - target: {fileID: 4492121591207213752, guid: 935460684c14cd64b8c6f63bd0330753, type: 3}
       propertyPath: m_Name
       value: Respawn2

@@ -110,4 +110,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _Speed: 30
   _MaxLifeTime: 10
-  _Damage: 50
+  _Damage: 30

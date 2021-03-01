@@ -15,7 +15,7 @@ public class NavTarget : MonoBehaviour
     private float _RangeAttack; //It's the max range that the prefab will going to move;
 
     //To avoid enter in the condition on the update everytime when is walking the enemy
-    private bool _IsMoving = true;
+    //private bool _IsMoving = true;
 
     private void Awake()
     {

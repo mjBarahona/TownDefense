@@ -53,9 +53,10 @@ public class GameManager : Singleton<GameManager>
         for (int i = 0; i < Enemies.Count; ++i)
         {
             _CurrentTotalEnemies += Enemies[i].GetCurrentHordeAmount(_horde);
-            //PoolManager.Instance.SpawnEnemy(Enemies[i].GetId(), Enemies[i].GetCurrentHordeAmount(_horde));  // I have to think a bit more about this
+            //UiManager.Instance.ShowHorde(_horde)
+            //CallToRespawnEnemies()
         }
-           
+
     }
 
     public void UpdateCoins(int amount)

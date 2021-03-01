@@ -13,7 +13,8 @@ public class BaseBullet : MonoBehaviour, IAttack<int>
 
     private Vector3 _Orientation;
 
-
+    //To call from the character that call the bullet before to shooting it
+    public void SetDamage(int damage) { _Damage = damage; }
 
     public void OnEnable()
     {

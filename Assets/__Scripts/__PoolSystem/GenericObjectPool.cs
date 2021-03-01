@@ -12,7 +12,7 @@ public abstract class GenericObjectPool<T> : MonoBehaviour where T : Component
     
 
     [SerializeField]
-    protected int _MaxNumberOfEntitiesInstantiate = 100;
+    protected readonly int _MaxNumberOfEntitiesInstantiate = 100;
     [Space(5)]
 
     [SerializeField]

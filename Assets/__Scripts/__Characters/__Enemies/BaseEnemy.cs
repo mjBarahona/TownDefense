@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 //Probably, this class will become in abstract class
 public class BaseEnemy : BaseCharacter, IDamagable<int>
@@ -9,14 +10,15 @@ public class BaseEnemy : BaseCharacter, IDamagable<int>
     public static Action OnDeath;
     public static Action<int> OnEarnCoins;
     public static Action<int> OnEarnExp;
-
+    [SerializeField]
+    private HealthBar healthBar;
     [SerializeField]
     private int _coins = 1;
     [SerializeField]
     private int _exp = 1;
 
     [SerializeField]
-    private int _MaxHealth = 100;
+    private readonly int _MaxHealth = 100;
     private int _CurrentHealth;
     public int Health { get; set; }
 
@@ -24,17 +26,28 @@ public class BaseEnemy : BaseCharacter, IDamagable<int>
     private void OnEnable()
     {
         Health = _MaxHealth;
+        healthBar.SetMaxHealth(_MaxHealth);
         //TODO: Update UI to show the Health Bar
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        IAttack<int> attack = other.GetComponent<IAttack<int>>();
+        if (attack != null)
+        {
+            TakeDamage(attack.Damage);
+        }
     }
 
     public override void TakeDamage(int damageAmount)
     {
         Health -= damageAmount;
-        //TODO: Update UI to show the Health Bar
+        
         if(Health <= 0)
         {
             Death();
         }
+        healthBar.UpdateHealth(Health);
     }
 
     public override void Attack()
@@ -53,12 +66,5 @@ public class BaseEnemy : BaseCharacter, IDamagable<int>
         gameObject.SetActive(false);
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        IAttack<int> attack = other.GetComponent<IAttack<int>>();
-        if (attack != null)
-        {
-            TakeDamage(attack.Damage);
-        }
-    }
+    
 }
