@@ -28,7 +28,7 @@ GameObject:
   - component: {fileID: 8326351746229366912}
   - component: {fileID: 2156567171393771894}
   - component: {fileID: 5222834502416170060}
-  m_Layer: 2
+  m_Layer: 7
   m_Name: EnemyTest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -66,12 +66,12 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9203292470095522108}
   m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 0
   m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
+  m_LightProbeUsage: 0
+  m_ReflectionProbeUsage: 0
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
@@ -110,7 +110,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 2, y: 2, z: 2}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &8326351746229366919
 Rigidbody:
@@ -126,7 +126,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 1
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 104
   m_CollisionDetection: 0
 --- !u!114 &8326351746229366912
 MonoBehaviour:
@@ -163,8 +163,8 @@ NavMeshAgent:
   m_AngularSpeed: 120
   m_StoppingDistance: 2
   m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
+  m_AutoBraking: 0
+  m_AutoRepath: 0
   m_Height: 1
   m_BaseOffset: 0.5
   m_WalkableMask: 4294967295
@@ -194,6 +194,10 @@ PrefabInstance:
     - target: {fileID: 1811706726974902893, guid: ecaadfbfedb0ee143be1c370bbe33080, type: 3}
       propertyPath: m_Name
       value: HpCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 1811706726974902893, guid: ecaadfbfedb0ee143be1c370bbe33080, type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2275461254367707740, guid: ecaadfbfedb0ee143be1c370bbe33080, type: 3}
       propertyPath: m_Pivot.x
@@ -279,6 +283,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2463665871552091837, guid: ecaadfbfedb0ee143be1c370bbe33080, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4945281122548977256, guid: ecaadfbfedb0ee143be1c370bbe33080, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 5055156270995183518, guid: ecaadfbfedb0ee143be1c370bbe33080, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -286,6 +298,10 @@ PrefabInstance:
     - target: {fileID: 5055156270995183518, guid: ecaadfbfedb0ee143be1c370bbe33080, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5382409159046238509, guid: ecaadfbfedb0ee143be1c370bbe33080, type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6412936685506997498, guid: ecaadfbfedb0ee143be1c370bbe33080, type: 3}
       propertyPath: m_LocalRotation.w

@@ -30,6 +30,11 @@ public class BaseEnemy : BaseCharacter, IDamagable<int>
         //TODO: Update UI to show the Health Bar
     }
 
+    private void Start()
+    {
+       
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         IAttack<int> attack = other.GetComponent<IAttack<int>>();
